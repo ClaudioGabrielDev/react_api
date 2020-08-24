@@ -76,3 +76,25 @@
     
     text-transform: uppercase;
 }
+.list-heros .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.list-heros .actions button{
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    background: red;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.list-heros .actions button:hover{
+    opacity: 0.5;
+}
+.list-heros .actions button[disabled]{
+    opacity: 0.5;
+    cursor: default;
+}
