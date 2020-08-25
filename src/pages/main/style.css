@@ -148,10 +148,6 @@
         width: 350px;
         height: 350px;
         max-height: 600px;
-    
-        object-fit: cover;
-        
-        border-radius: 5px;
     }
     .list-heros .actions button{
         width: 300px;
