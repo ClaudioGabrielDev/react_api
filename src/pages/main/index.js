@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import api from '../../services/api.js';
 import './style.css'
 
+
 export default class Main extends Component {
 
     state = {
@@ -10,6 +11,8 @@ export default class Main extends Component {
         offset: 0,
         ShowMe: false,
         nameStartsWith: [],
+        nome: ""
+        
 
     };
 
@@ -19,14 +22,12 @@ export default class Main extends Component {
     }
 
     loadHeros = async (offset = 0, nameStartsWith) => {
-        const response = await api.get(`https://gateway.marvel.com:443/v1/public/characters?limit=10&ts=1597841898&apikey=3dd643db72bfef60e2ba5654f10c3070&hash=ada0c5002b1f3db5cb18a7eaa9ee42d4&offset=${offset}`);
+        const response = await api.get(`https://gateway.marvel.com:443/v1/public/characters?limit=3&ts=1597841898&apikey=3dd643db72bfef60e2ba5654f10c3070&hash=ada0c5002b1f3db5cb18a7eaa9ee42d4&offset=${offset}`);
 
         const { results, ...heroinfo } = response.data.data;
 
         this.setState({ heros: results, heroinfo, offset, nameStartsWith });
     };
-
-    
 
     prevPage = () => {
     
@@ -34,7 +35,7 @@ export default class Main extends Component {
 
         if (offset === 0) return;
 
-        const offNumber = offset - 10;
+        const offNumber = offset - 3;
 
         this.loadHeros(offNumber);
         
@@ -44,7 +45,7 @@ export default class Main extends Component {
 
         if (offset === heroinfo.total) return;
 
-        const offNumber = offset + 10;
+        const offNumber = offset + 3;
 
         this.loadHeros(offNumber);
     };
@@ -56,26 +57,17 @@ export default class Main extends Component {
 
     
 
-
-    
-    
-
     render(){
 
         const { heros, offset, heroinfo } = this.state;
 
         return (
             
-            
-            
-            <div className="list-heros">
+            <div className="list-heros"> 
 
-                <div className="input-heros">
+                
+                <div className="articles">
                     
-                    <input type="text" placeholder="Nome do herói" className="form-heros" id="name-hero"></input>
-                    <button className="bt-input" type="text" >Pesquisar</button>
-                </div>
-            
                 
                 {heros.map(hero => (
                 <article key={hero.id}>
@@ -91,6 +83,7 @@ export default class Main extends Component {
                     
                     </article>
             ))}
+            </div>
                 <div className="actions">
                     <button disabled= {offset === 0 } onClick = {this.prevPage}>Anterior</button>
                     <button disabled= {offset === heroinfo.total } onClick = {this.nextPage}>Proximo</button>

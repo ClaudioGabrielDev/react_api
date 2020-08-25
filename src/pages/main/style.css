@@ -1,15 +1,20 @@
 .list-heros{
     max-width: 500px;
+
     margin: 20px auto 0;
     padding: 0 20px;
 }
 .list-heros article{
     
     background: rgb(32, 32, 32);
+
     border: 1px solid rgb(46, 46, 46);
     border-radius: 5px 0 5px 0;
+
     box-shadow: -5px 5px 9px rgba(0, 0, 0, 0.281);
+
     padding: 20px;
+
     margin-bottom: 20px;
     box-sizing: border-box;
     
@@ -80,16 +85,19 @@
 .list-heros .actions {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .list-heros .actions button{
     padding: 10px;
+
     border-radius: 5px;
     border: 0;
-    background: red;
+
+    background: rgb(65, 65, 65);
     color: white;
     font-size: 16px;
     font-weight: bold;
+
     cursor: pointer;
 }
 .list-heros .actions button:hover{
@@ -99,42 +107,60 @@
     opacity: 0.5;
     cursor: default;
 }
-.list-heros .input-heros{
-    display: flex;
-    justify-content: space-between;
-    
-}
-.list-heros .input-heros input {
-    width: 70%;
-    height: 5px;
-    padding: 15px;
-    margin: 0 10px 15px 0;
 
-    background: none;
-    border: none;
-    border-bottom: 1px solid red;
-
-    color: white;
-
-    font-size: 16px;
-}
-
-.list-heros .input-heros .bt-input{
-    width: 25%;
-    height: 30px;
-
-    background: red;
-    color: white;
-
-    border: none;
-    border-radius: 5px;
-
-    cursor: pointer;
-    
-}
 .list-heros .description{
     width: 100%;
+
     padding: 20px;
     margin: 20px 0 0 0;
+
     border-top: 1px solid rgb(53, 53, 53);
+
+    line-height: 1.3rem;
+}
+
+
+
+@media (min-width:1000px){
+    .list-heros{
+        max-width: 95%;
+        margin: 15px auto 0;
+        padding: 0 20px;
+        
+    }
+    .list-heros .input-heros{
+        min-width: 100%;
+    }
+    .list-heros .articles{
+        display: grid;
+
+        grid-template-columns: 1fr 1fr 1fr;
+
+        gap: 20px;
+    }
+    .list-heros article {
+        max-width: 450px;
+
+        margin-top: 5px;
+    }
+    .list-heros article .img-hero img{
+        max-width: 700px;
+        width: 350px;
+        height: 350px;
+        max-height: 600px;
+    
+        object-fit: cover;
+        
+        border-radius: 5px;
+    }
+    .list-heros .actions button{
+        width: 300px;
+    }
+    .list-heros .actions button:hover{
+        opacity: 0.5;
+    }
+    .list-heros .actions button[disabled]{
+        opacity: 0.5;
+        cursor: default;
+    }
 }

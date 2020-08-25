@@ -1,10 +1,14 @@
 import React from 'react';
 
-import './style.css'
+import './style.scss'
 
 const Header = () => (
     <header id="main-header">
-            Marvel
+                <div className="input">
+                    <input type="text" placeholder="Nome do herói" className="form-heros" id="name-hero"></input>
+                    <button className="bt-input" type="text" >Pesquisar</button>
+                </div>
+                
         </header>
 );
     
